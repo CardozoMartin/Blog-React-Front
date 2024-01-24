@@ -13,11 +13,13 @@ function Router() {
   return (
     <BrowserRouter>
     <NavBar/>
+    <main>
     <Routes>
       <Route path='/' element={<HomeViews/>} />
       <Route path='/detail' element={<DetailView/>} />
       <Route path='/login' element={<LoginView/>} />
     </Routes>
+    </main>
     <Footer/>
     </BrowserRouter>
   )

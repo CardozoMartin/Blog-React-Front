@@ -6,3 +6,19 @@ body{
   background-color: #020113;
   color:aliceblue
 }
+#root{
+  display: flex !important;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main{
+  margin-top: 60px;
+  margin-bottom: 25px;
+  flex: 1 0 auto;
+  overflow: hidden;
+}
+
+footer{
+  flex-shrink: 0;
+  padding: 1rem 0 0.5rem 0;
+}
