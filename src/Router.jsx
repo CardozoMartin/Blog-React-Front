@@ -6,6 +6,7 @@ import DetailView from './views/DetailView'
 import LoginView from './views/LoginView'
 import NavBar from './components/Common/NavBar'
 import Footer from './components/Common/Footer'
+import UserView from './views/UserView'
 
 function Router() {
   
@@ -18,6 +19,7 @@ function Router() {
       <Route path='/' element={<HomeViews/>} />
       <Route path='/detail' element={<DetailView/>} />
       <Route path='/login' element={<LoginView/>} />
+      <Route path='/userPerfil' element={<UserView/>} />
     </Routes>
     </main>
     <Footer/>
