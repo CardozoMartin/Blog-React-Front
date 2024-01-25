@@ -1,66 +1,25 @@
-import { useState } from "react";
-
-
 const Input = (props) => {
   const {
     placeholder,
+    type = "text",
     name,
     options = {},
     register,
     className = "",
     error = false,
   } = props;
-
-  const [image, setImage] = useState(null);
-
-  const handleImageChange = (e) => {
-    const selectedImage = e.target.files[0];
-    setImage(selectedImage);
-  };
-
-  const inputProps = {
-    type: "text",
-    id: `${name}-input`,
-    className: ``,
-    placeholder,
-    ...register(name, options),
-  };
-
   return (
-    <div className={`form-group ${className}`}>
-      <div style={{ position: "relative" }}>
-        <textarea {...inputProps} />
-
-        {image && (
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            <img
-              src={URL.createObjectURL(image)}
-              alt="Selected"
-              style={{ maxWidth: "100%", maxHeight: "150px" }}
-            />
-          </div>
-        )}
-      </div>
-
-      <div className="mt-2">
-        <label htmlFor={`${name}-image`} className="form-label">
-        
-        </label>
-        <input
-          type="file"
-          id={`${name}-image`}
-          accept="image/*"
-          onChange={handleImageChange}
-        />
-      </div>
-    </div>
+    <fieldset className={`form-group ${className}`}>
+      <input
+        type={type}
+        id={`${name}-input`}
+        className={`form-control form-control-user ${
+          error ? "is-invalid" : ""
+        }`}
+        placeholder={placeholder}
+        {...register(name, options)}
+      />
+    </fieldset>
   );
 };
 
