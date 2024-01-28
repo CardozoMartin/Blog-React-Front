@@ -1,20 +1,34 @@
-import { useEffect, useState } from "react"
-import UserCard from "../components/Common/users/UserCard"
-import UserForm from "../components/Common/users/UserForm"
 
-const publicacionLs = JSON.parse(localStorage.getItem("publicacion")) || [];
+
+
+import { useQuery } from "@tanstack/react-query";
+import { getPublicacionFn } from "../api/publicacion"
+import UserForm from "../components/users/UserForm";
+import UserCard from "../components/users/UserCard";
+
+
+
 
 const UserView = () => {
-  const [pub , setPub]= useState(publicacionLs)
+  const { data : publicacion, isLoading, isError } = useQuery({queryKey : ["publicaciones"], queryFn: getPublicacionFn} );
 
-  useEffect(()=>{
-    localStorage.setItem("publicacion", JSON.stringify(pub))
-  }, [pub])
+  if(isError){
+    return(
+      <div>UserView
+
+         <UserForm/>
+         <h1>Ocurrio un error al cargar</h1>
+         
+    </div>
+    )
+  }
+  
   return (
     <div>UserView
 
-        <UserForm setPub={setPub}/>
-        <UserCard setPub={setPub} pub={pub}/>
+         <UserForm/>
+         {isLoading ? <h3>Cargando...</h3> : <UserCard publicacion={publicacion}/> }
+         
     </div>
   )
 }

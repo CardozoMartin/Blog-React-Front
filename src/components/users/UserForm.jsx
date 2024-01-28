@@ -1,14 +1,18 @@
 import { useForm } from "react-hook-form";
 import Input from "../input/Input";
+import { useMutation } from "@tanstack/react-query";
 
-const UserForm = (props) => {
-  const { setPub } = props;
+const UserForm = () => {
+  //RHF --------------------------------------------------
   const {
     register,
     formState: { errors },
     handleSubmit: onSubmitRHF,
     reset,
   } = useForm();
+  //TQuery --------------------------------------------------
+ useMutation
+  //Handler --------------------------------------------------
 
   const handleSubmit = (data) => {
     console.log(data)
@@ -17,6 +21,10 @@ const UserForm = (props) => {
     setPub((prev)=>[...prev, newPub])
     reset();
   };
+
+
+
+  //Render --------------------------------------------------
   return (
     <>
       <h1> Publique algo</h1>
