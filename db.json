@@ -1,4 +1,21 @@
 {
-    "publicaciones": [],
-    "users": []
+  "publicaciones": [
+    {
+      "id": "3a37",
+      "publicacion": "hola como estas "
+    },
+    {
+      "id": "e986",
+      "publicacion": ""
+    },
+    {
+      "id": "a2fa",
+      "publicacion": "ddqewqewqewq"
+    },
+    {
+      "id": "295a",
+      "publicacion": "hola soy un pollito"
+    }
+  ],
+  "users": []
 }
