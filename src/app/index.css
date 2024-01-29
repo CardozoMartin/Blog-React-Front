@@ -74,8 +74,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-body{
-  background-color: #020113;
-  color: aliceblue;
-}
