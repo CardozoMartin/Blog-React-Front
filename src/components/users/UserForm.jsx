@@ -4,6 +4,14 @@ import { useQueryClient , useMutation } from "@tanstack/react-query";
 import { postPublicacionFn } from "../../api/publicacion";
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 
 
@@ -34,25 +42,27 @@ const UserForm = () => {
 
   //Render --------------------------------------------------
   return (
-    <>
-      <h1> Publique algo</h1>
-      <form action="" onSubmit={onSubmitRHF(handleSubmit)}>
-       
-        <Textarea
-         register={register}
-         options={{
-           required: true,
-           minLength: 4,
-           maxLength: 6000,
-         }}
-         name="publicacion"
-         placeholder="Que estas pensando..."
-         error={!!errors.publicacion} />
-        <div>
-        <Button variant="destructive">Destructive</Button>
-        </div>
-      </form>
-    </>
+    <section className=" mt-3 border-solid border-white">
+  <form action="" onSubmit={onSubmitRHF(handleSubmit)} className="mx-auto">
+
+    <Textarea
+      register={register}
+      options={{
+        required: true,
+        minLength: 4,
+        maxLength: 6000,
+      }}
+      name="publicacion"
+      placeholder="¿Qué estás pensando..."
+      error={!!errors.publicacion}
+    />
+
+    <div className="mt-2">
+      <Button variant="destructive">Destructive</Button>
+    </div>
+  </form>
+</section>
+
   );
 };
 

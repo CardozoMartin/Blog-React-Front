@@ -20,8 +20,8 @@ const UserView = () => {
   }
 
   return (
-    <div>
-      UserView
+    <div className="container">
+      
       <UserForm />
       {isLoading ? (
         <h3>Cargando...</h3>
