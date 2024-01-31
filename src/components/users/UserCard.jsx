@@ -1,4 +1,6 @@
-import Card from "./Card";
+import ContentCard from "./Card";
+
+
 
 
 const UserCard = (props) => {
@@ -7,10 +9,10 @@ const UserCard = (props) => {
 
   console.log(publicacion);
   return (
-    <div>
-      <h1>Aqui estaria lo publicado</h1>
+    <div className="mt-20">
+      
       {publicacion && publicacion.map((item) => (
-        <Card publicacion={item} key={item.id} />
+        <ContentCard publicacion={item} key={item.id} />
       ))}
     </div>
   )

@@ -42,7 +42,7 @@ const UserForm = () => {
 
   //Render --------------------------------------------------
   return (
-    <section className=" mt-3 border-solid border-white">
+    <section className="mt-4 content-center grid ">
   <form action="" onSubmit={onSubmitRHF(handleSubmit)} className="mx-auto">
 
     <Textarea
@@ -58,7 +58,7 @@ const UserForm = () => {
     />
 
     <div className="mt-2">
-      <Button variant="destructive">Destructive</Button>
+      <Button variant="destructive">Publicar</Button>
     </div>
   </form>
 </section>

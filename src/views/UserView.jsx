@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import { getPublicacionFn } from "../api/publicacion";
 import UserForm from "../components/users/UserForm";
 import UserCard from "../components/users/UserCard";
-import { Button } from "@/components/ui/button"
 const UserView = () => {
   const {
     data: publicacion,
@@ -20,13 +19,16 @@ const UserView = () => {
   }
 
   return (
-    <div className="container">
+    <div className="container ">
       
       <UserForm />
       {isLoading ? (
         <h3>Cargando...</h3>
       ) : (
+        <div className="container mx-auto">
         <UserCard publicacion={publicacion} />
+        
+        </div>
       )}
       
     </div>
