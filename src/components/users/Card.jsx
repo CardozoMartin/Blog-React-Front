@@ -6,7 +6,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Button } from "@/components/ui/button"
+
 
 
 
@@ -18,27 +18,26 @@ return (
  
       
       
-  <article className="overflow-hidden rounded-lg shadow transition hover:shadow-lg border m-3 max-w-[800px]  mx-auto p-5">
+  <article className="overflow-hidden rounded-lg shadow transition hover:shadow-lg border m-1 max-w-[800px]  mx-auto p-5 bg-slate-800">
     <div className="flex justify-end">
 
-<Button variant="outline" className="bg-slate-900 border-none hover:bg-black hover:text-white hover:border-solid">
+
 <DropdownMenu>
-  <DropdownMenuTrigger>...</DropdownMenuTrigger>
+  <DropdownMenuTrigger className="font-bold hover:text-black">...</DropdownMenuTrigger>
   <DropdownMenuContent>
-    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+    <DropdownMenuLabel>Opciones</DropdownMenuLabel>
     <DropdownMenuSeparator />
-    <DropdownMenuItem>Profile</DropdownMenuItem>
-    <DropdownMenuItem>Billing</DropdownMenuItem>
-    <DropdownMenuItem>Team</DropdownMenuItem>
-    <DropdownMenuItem>Subscription</DropdownMenuItem>
+    <DropdownMenuItem>Editar</DropdownMenuItem>
+    <DropdownMenuItem>Eliminar</DropdownMenuItem>
+    <DropdownMenuItem>Reportar</DropdownMenuItem>
   </DropdownMenuContent>
 </DropdownMenu>
-</Button>
+
     </div>
 
     
     
-  <div className="bg-blend-darken  sm:p-6">
+  <div className="  sm:p-6">
 
     <h3 className=" text-lg text-white-900 flex-nowrap whitespace-normal overflow-hidden overflow-ellipsis">
       {publicacion.publicacion}

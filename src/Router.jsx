@@ -9,13 +9,18 @@ import Footer from './components/Common/Footer'
 import UserView from './views/UserView'
 import RegisterView from './views/RegisterView'
 
+
+
 function Router() {
   
 
   return (
     <BrowserRouter>
+   
+
     <NavBar/>
     <main>
+      
     <Routes>
       <Route path='/home' element={<HomeViews/>} />
       <Route path='/detail' element={<DetailView/>} />
