@@ -20,3 +20,12 @@ export const postPublicacionFn = async(data)=>{
     throw new Error("Ocurrio un error al guardar una publicacion")
   }
 }
+
+export const deletePublicacionFn = async(id)=>{
+  const res = await fetch(` ${API_URL}/publicaciones/${id}`,{
+    method:'DELETE',
+  });
+  if(!res.ok){
+    throw new Error("Ocurrio un error al guardar una publicacion")
+  }
+}

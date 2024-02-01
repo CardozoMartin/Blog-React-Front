@@ -60,7 +60,7 @@ const DropdownMenuContent = React.forwardRef(({ className, sideOffset = 4, ...pr
 ))
 DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName
 
-const DropdownMenuItem = React.forwardRef(({ className, inset, ...props }, ref) => (
+const DropdownMenuItem = React.forwardRef(({ className, inset, onClick, ...props }, ref) => (
   <DropdownMenuPrimitive.Item
     ref={ref}
     className={cn(
@@ -68,6 +68,7 @@ const DropdownMenuItem = React.forwardRef(({ className, inset, ...props }, ref) 
       inset && "pl-8",
       className
     )}
+    onClick={onClick}  
     {...props} />
 ))
 DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName
