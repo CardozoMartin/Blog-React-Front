@@ -51,7 +51,7 @@ const RegisterView = () => {
     >
     
       <div className="max-w-xl lg:max-w-3xl">
-        <h1 className="text-center text-2xl font-bold text-white sm:text-3xl md:text-4xl ">Welcome</h1>
+        
         <div className="relative -mt-16 block lg:hidden">
           <a
             className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-blue-600 sm:h-20 sm:w-20"
@@ -72,7 +72,7 @@ const RegisterView = () => {
           </a>
 
           <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-            Welcome to Squid 🦑
+            Welcome to Blog
           </h1>
 
           <p className="mt-4 leading-relaxed text-gray-500">
