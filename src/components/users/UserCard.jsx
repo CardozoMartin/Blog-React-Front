@@ -1,16 +1,18 @@
-import Card from "./Card";
+import ContentCard from "./Card";
+
+
 
 
 const UserCard = (props) => {
 
-  const {  publicacion } = props;
+  const {  publication } = props;
 
-  console.log(publicacion);
+  console.log(publication);
   return (
-    <div>
-      <h1>Aqui estaria lo publicado</h1>
-      {publicacion && publicacion.map((item) => (
-        <Card publicacion={item} key={item.id} />
+    <div className="mt-20">
+      
+      {publication && publication.map((item) => (
+        <ContentCard publication={item} key={item.id} />
       ))}
     </div>
   )

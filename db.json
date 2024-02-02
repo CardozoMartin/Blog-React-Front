@@ -1,20 +1,16 @@
 {
-  "publicaciones": [
+  "publications": [
     {
-      "id": "3a37",
-      "publicacion": "hola como estas "
+      "publication": "hola como estas ss",
+      "id": "3a37"
     },
     {
-      "id": "e986",
-      "publicacion": ""
+      "publication": "soy un estado editado",
+      "id": "a2fa"
     },
     {
-      "id": "a2fa",
-      "publicacion": "ddqewqewqewq"
-    },
-    {
-      "id": "295a",
-      "publicacion": "hola soy un pollito"
+      "publication": "hola soy un pollo",
+      "id": "295a"
     }
   ],
   "users": []
