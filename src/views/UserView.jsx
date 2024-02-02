@@ -1,13 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import { getPublicacionFn } from "../api/publicacion";
+import { getpublicationFn } from "../api/publication";
 import UserForm from "../components/users/UserForm";
 import UserCard from "../components/users/UserCard";
 const UserView = () => {
   const {
-    data: publicacion,
+    data: publication,
     isLoading,
     isError,
-  } = useQuery({ queryKey: ["publicaciones"], queryFn: getPublicacionFn });
+  } = useQuery({ queryKey: ["publications"], queryFn: getpublicationFn });
 
   if (isError) {
     return (
@@ -26,7 +26,7 @@ const UserView = () => {
         <h3>Cargando...</h3>
       ) : (
         <div className="container mx-auto">
-        <UserCard publicacion={publicacion} />
+        <UserCard publication={publication} />
         
         </div>
       )}

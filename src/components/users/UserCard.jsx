@@ -5,14 +5,14 @@ import ContentCard from "./Card";
 
 const UserCard = (props) => {
 
-  const {  publicacion } = props;
+  const {  publication } = props;
 
-  console.log(publicacion);
+  console.log(publication);
   return (
     <div className="mt-20">
       
-      {publicacion && publicacion.map((item) => (
-        <ContentCard publicacion={item} key={item.id} />
+      {publication && publication.map((item) => (
+        <ContentCard publication={item} key={item.id} />
       ))}
     </div>
   )

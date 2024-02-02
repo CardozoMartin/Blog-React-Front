@@ -9,41 +9,48 @@ import {
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import Swal from "sweetalert2";
-import { deletePublicacionFn } from "../../api/publicacion";
+import { deletepublicationFn } from "../../api/publication";
+import { usePublication } from "../../store/usePublication";
 
 
 
 
 
 const ContentCard = (props) => {
-  const { publicacion } = props;
+
+  const { setPubToEdit} = usePublication();
+  const { publication } = props;
   const queryClient = useQueryClient();
 
-  const { mutate : deletePublicacion } = useMutation({
-    mutationFn : deletePublicacionFn,
+  const { mutate : deletepublication } = useMutation({
+    mutationFn : deletepublicationFn,
     onSuccess: () => {
       Swal.close();
-      toast.success("Publicacion Eliminada.");
+      toast.success("publication Eliminada.");
 
-      queryClient.invalidateQueries("publicaciones");
+      queryClient.invalidateQueries("publicationes");
     },
     onError: () => {
       Swal.close();
-      toast.error("ocurrio un error eliminando la publicacion");
+      toast.error("ocurrio un error eliminando la publication");
     },
   })
+
+  const handleEdit = ()=>{
+    setPubToEdit(publication)
+  }
 
   const handleDelete = () => {
     Swal.fire({
       title: "¿Estas Seguro?",
-      text: `Estas por eliminar la publicacion "${publicacion.publicacion}"`,
+      text: `Estas por eliminar la publication "${publication.publication}"`,
       showCancelButton: true,
       confirmButtonText: "Si, Eliminar",
       cancelButtonText: "Cancel",
     }).then((res) => {
       if (res.isConfirmed) {
         Swal.showLoading();
-        deletePublicacion(publicacion.id);
+        deletepublication(publication.id);
       }
     });
   };
@@ -57,11 +64,11 @@ return (
 
 
 <DropdownMenu>
-  <DropdownMenuTrigger className="font-bold hover:text-black">...</DropdownMenuTrigger>
+  <DropdownMenuTrigger className="font-bold hover:border-none">...</DropdownMenuTrigger>
   <DropdownMenuContent>
     <DropdownMenuLabel>Opciones</DropdownMenuLabel>
     <DropdownMenuSeparator />
-    <DropdownMenuItem>Editar</DropdownMenuItem>
+    <DropdownMenuItem onClick={ handleEdit}>Editar</DropdownMenuItem>
     <DropdownMenuItem onClick={ handleDelete}>Eliminar</DropdownMenuItem>
     <DropdownMenuItem>Reportar</DropdownMenuItem>
   </DropdownMenuContent>
@@ -74,7 +81,7 @@ return (
   <div className="  sm:p-6">
 
     <h3 className=" text-lg text-white-900 flex-nowrap whitespace-normal overflow-hidden overflow-ellipsis">
-      {publicacion.publicacion}
+      {publication.publication}
     </h3>
   </div>
 </article>
