@@ -8,7 +8,7 @@ import NavBar from './components/Common/NavBar'
 import Footer from './components/Common/Footer'
 import UserView from './views/UserView'
 import RegisterView from './views/RegisterView'
-
+import { Toaster } from "@/components/ui/sonner"
 
 
 function Router() {
@@ -28,8 +28,10 @@ function Router() {
       <Route path='/userPerfil' element={<UserView/>} />
       <Route path='/register' element={<RegisterView/>} />
     </Routes>
+    <Toaster />
     </main>
     <Footer/>
+
     </BrowserRouter>
   )
 }
