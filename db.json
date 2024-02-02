@@ -13,5 +13,22 @@
       "id": "295a"
     }
   ],
-  "users": []
+  "users": [
+    {
+      "id": "de3c",
+      "name": "martin",
+      "lastName": "cardozo",
+      "Email": "martin@gmail.com",
+      "password": "1559083480",
+      "isAdmin": false
+    },
+    {
+      "id": "afd2",
+      "name": "kevin",
+      "lastName": "cardozo",
+      "Email": "gato@gmaila.com",
+      "password": "1559083480",
+      "isAdmin": false
+    }
+  ]
 }
