@@ -1,17 +1,46 @@
 import { useForm } from "react-hook-form";
 import Input from "../input/Input"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSession } from "../../store/useSession";
+import { toast } from "sonner"
+import { useMutation } from "@tanstack/react-query";
+import { postLoginFn } from "../../api/auth";
 
 
 const LoginForm = () => {
-    const {
-        register,
-        formState: { errors },
-        handleSubmit: onSubmitRHF,
-      } = useForm();
+  //Zustand --------------------------------------------------
+  const { login } = useSession();
+
+  //RDD --------------------------------------------------
+  const navigate = useNavigate();
+
+  //RHF --------------------------------------------------
+  const {
+    register,
+    formState: { errors },
+    handleSubmit: onSubmitRHF,
+  } = useForm();
+  //TQUERY --------------------------------------------------
+const { mutate : postLoggin } = useMutation({
+  mutationFn : postLoginFn,
+  onSuccess:(data)=>{
+    //cerrar el spinner de cargar
+    toast("Bienvenido")
+
+    login(data)
+
+    navigate("/home")
+
+
+  },
+  onError:(err)=>{
+    toast(err.message)
+  }
+})
 
       const handleSubmit = (data)=>{
-        console.log(data)
+        //poner spinner de carga
+        postLoggin(data)
 
       }
   return (
@@ -20,9 +49,9 @@ const LoginForm = () => {
       <p className="text-center text-lg font-medium">Sign in to your account</p>
 
       <div>
-        <label htmlFor="email" className="sr-only">Email</label>
 
         <fieldset className="relative">
+        <label htmlFor="email" className="sr-only">Email</label>
             <Input
             register={register}
             options={{
@@ -31,17 +60,17 @@ const LoginForm = () => {
               maxLength: 60,
             }}
             className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-            
-            name="usuario"
-            placeholder="Enter usser"
-            error={!!errors.publication}></Input>
+            type="Email"
+            name="Email"
+            placeholder="Enter Email"
+            error={!!errors.Email}></Input>
         </fieldset>
       </div>
 
       <div>
-        <label htmlFor="password" className="sr-only">Password</label>
 
         <fieldset className="relative">
+        <label htmlFor="password" className="sr-only">Password</label>
             <Input
             register={register}
             options={{
@@ -53,7 +82,7 @@ const LoginForm = () => {
             type="password"
             name="password"
             placeholder="Enter password"
-            error={!!errors.publication}></Input>
+            error={!!errors.password}></Input>
         </fieldset>
       </div>
 
